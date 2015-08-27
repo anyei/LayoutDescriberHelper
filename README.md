@@ -18,12 +18,17 @@ public EditAccountController(ApexPages.StandardController controller) {
 //.... more code to do things
 
 
+
+/************************************************************************/
  //getting the default record type
 //if we want an specific layout we must provide the appropriate record type id
 id theRecordTypeIdToDescribe = LayoutDescriberHelper.getDefaultRecordType(obj);
         
 //get the layout section items
 layoutSections = LayoutDescriberHelper.describeSectionWithFields(theRecordTypeIdToDescribe, 'Account');
+
+/***************************************************************************/
+
 }
 
 }
