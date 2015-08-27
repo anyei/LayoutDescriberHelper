@@ -1,6 +1,16 @@
 # LayoutDescriberHelper
 Salesforce.com apex class to describe page layouts.
 
+### Install
+
+##### Deploy to Code
+<a href="https://githubsfdeploy.herokuapp.com?owner=anyei&repo=LayoutDescriberHelper">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
+
+##### Manual
+Download this repo and use eclipse or jenkins to deploy the src folder's content.
 
 ### Usage
 Just do the following in your visualforce page controller
