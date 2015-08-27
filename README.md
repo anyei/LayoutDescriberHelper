@@ -3,7 +3,8 @@ Salesforce.com apex class to describe page layouts.
 
 ### Install
 
-##### Deploy to Code
+##### Deploy to Salesforce Button
+
 <a href="https://githubsfdeploy.herokuapp.com?owner=anyei&repo=LayoutDescriberHelper">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
