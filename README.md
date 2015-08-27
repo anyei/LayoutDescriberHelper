@@ -36,7 +36,7 @@ layoutSections = LayoutDescriberHelper.describeSectionWithFields(theRecordTypeId
 Where layoutSections is a public property in your controller and 'Account' is your sobject type.
 Make sure you select the fields of the object before referencing them otherwise you'll get an annoying sfdc standard error.
 
-See the following example:
+See the following visualforce page example which will generate an edit form for the Account object:
 ```sh
 <apex:page standardController='Account' extensions="EditAccountController" >
     
