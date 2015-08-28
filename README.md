@@ -37,6 +37,7 @@ public class EditAccountController {
 	//...... more members of your controller class.......
 
 public EditAccountController(ApexPages.StandardController controller) {
+sObject obj = controller.getRecord();
 
 //.... more code to do things
 
