@@ -16,11 +16,11 @@ Download this repo and use eclipse or jenkins to deploy the src folder's content
 
 ##### Remote Site Settings entry
 
-After you install, you must make sure the salesforce instance server where you are login is included int he remote site settings.
+After you install, you must make sure the salesforce instance server where you are login is included in the remote site settings.
 
 1. Go to setup
 2. Then in the left menu, click on "Security Controls" -> "Remote Site Settings" option 
-3. If you dont an entry of your salesforce instance, click "New Remote Site" button 
+3. If you dont have an entry of your salesforce instance, click "New Remote Site" button 
 4. Put a name name to that entry in the "Remote Site Name" field, could be something like "salesforce sandbox" or "salesforce prod"
 5. In the "Remote Site URl" type in the correct url of the salesforce instance you are loggin, mine looks like "https://na17.salesforce.com" without quotes 
 6. Finally make sure the "Active" checkbox is checked and save the record. 
