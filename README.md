@@ -37,6 +37,21 @@ public class EditAccountController {
 	//...... more members of your controller class.......
 
 public EditAccountController(ApexPages.StandardController controller) {
+
+// Create list of fields to add to controller for object 
+ List<String> fields = new List<String>{'Id', 'AccountNumber', 'AccountSource', 'Active__c', 'AnnualRevenue', 'BillingAddress', 'BillingCity', 'BillingCountry',
+                                          'BillingGeocodeAccuracy', 'BillingLatitude', 'BillingLongitude', 'BillingPostalCode', 'BillingState', 'BillingStreet',
+                                          'CleanStatus', 'CreatedById', 'CreatedDate', 'custom_field__c', 'CustomerPriority__c',
+                                          'DandbCompanyId', 'Description', 'DunsNumber', 'Fax', 'Industry', 'IsDeleted', 'Jigsaw', 'JigsawCompanyId', 'LastActivityDate',
+                                          'LastModifiedById', 'LastModifiedDate', 'LastReferencedDate', 'LastViewedDate', 'MasterRecordId', 'NaicsCode', 'NaicsDesc', 'Name', 'NumberOfEmployees',
+                                          'NumberofLocations__c', 'OwnerId', 'Ownership', 'ParentId', 'Phone', 'PhotoUrl', 'Rating', 'ShippingAddress', 'ShippingCity', 'ShippingCountry', 'ShippingGeocodeAccuracy',
+                                          'ShippingLatitude', 'ShippingLongitude', 'ShippingPostalCode', 'ShippingState', 'ShippingStreet', 'Sic', 'SicDesc', 'Site',
+                                          'SLA__c', 'SLAExpirationDate__c', 'SLASerialNumber__c', 'SystemModstamp', 'test1__c', 'test__c', 'TEST_TIMEOUT__c',
+                                          'testField123__c', 'testField1__c', 'testField__c', 'TickerSymbol', 'Tradestyle', 'Type', 'UpsellOpportunity__c', 'Website', 'YearStarted', 'OwnerId'};
+
+// Add fields to controller. This is to avoid the SOQL error in visualforce page
+controller.addFields(fields);
+
 sObject obj = controller.getRecord();
 
 //.... more code to do things
