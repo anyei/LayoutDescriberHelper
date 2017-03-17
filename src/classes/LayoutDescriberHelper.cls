@@ -86,8 +86,9 @@ public class LayoutDescriberHelper {
                         if( (apiName != '' && fieldType =='Field') || (   placeholderF)){
                             
                             LayoutField lf = new LayoutField();
+                            lf.required      = (Boolean)fields.get('required');
     						lf.isPlaceHolder = placeholderF;
-                            lf.editableField =  isEditable;
+                            lf.editableField = isEditable;
                             lf.ApiName = apiName;
     						if(ls.Name != '' || layoutSections.size() == 1)                                
                             	ls.layoutFields.add(lf);
@@ -174,6 +175,7 @@ public class LayoutDescriberHelper {
     
     public class LayoutField
     {
+        public boolean required {get; set;}
         public boolean isPlaceHolder {get;set;}        
         public string ApiName {get;set;}
         public boolean editableField {get;set;}

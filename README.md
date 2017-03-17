@@ -24,6 +24,8 @@ After you install, you must make sure the salesforce instance server where you a
 4. Put a name name to that entry in the "Remote Site Name" field, could be something like "salesforce sandbox" or "salesforce prod"
 5. In the "Remote Site URl" type in the correct url of the salesforce instance you are loggin, mine looks like "https://na17.salesforce.com" without quotes 
 6. Finally make sure the "Active" checkbox is checked and save the record. 
+7. Navigate to Setup -> Session Settings -> Ensure  "Lock sessions to the IP address from which they originated" is turned off. 
+8. If 7, was deselected, you will need to log out and log in again for this change to take effect. 
 
 ### Usage
 Just do the following in your visualforce page controller
@@ -39,18 +41,17 @@ public class EditAccountController {
 public EditAccountController(ApexPages.StandardController controller) {
 
 // Create list of fields to add to controller for object 
-List<String> fields = new List<String>{'Id', 'AccountNumber', 'AccountSource', 'AnnualRevenue', 'BillingAddress', 'BillingCity', 'BillingCountry',
-									  'BillingGeocodeAccuracy', 'BillingLatitude', 'BillingLongitude', 'BillingPostalCode', 'BillingState', 'BillingStreet',
-									  'CleanStatus', 'CreatedById', 'CreatedDate', 'DandbCompanyId', 'Description', 'DunsNumber', 'Fax', 'Industry', 'IsDeleted',
-									  'Jigsaw', 'JigsawCompanyId', 'LastActivityDate', 'LastModifiedById', 'LastModifiedDate', 'LastReferencedDate', 'LastViewedDate',
-									  'MasterRecordId', 'NaicsCode', 'NaicsDesc', 'Name', 'NumberOfEmployees', 'OwnerId', 'Ownership', 'ParentId', 'Phone', 'PhotoUrl',
-									  'Rating', 'ShippingAddress', 'ShippingCity', 'ShippingCountry', 'ShippingGeocodeAccuracy', 'ShippingLatitude', 'ShippingLongitude',
-									  'ShippingPostalCode', 'ShippingState', 'ShippingStreet', 'Sic', 'SicDesc', 'Site', 'SystemModstamp', 'TickerSymbol', 'Tradestyle',
-									  'Type', 'Website', 'YearStarted', 'OwnerId'};
-controller.addFields(fields);
+            
+            
+	/* dynamically get all fields for the Account object and add them to the controller */
+    List<String> fieldList = new List<String>();
+    for(Schema.SObjectField field: Schema.getGlobalDescribe().get('Account').getDescribe().fields.getMap().values()) {
+        fieldList.add(String.ValueOf(field));
+    }
+		
 
 // Add fields to controller. This is to avoid the SOQL error in visualforce page
-controller.addFields(fields);
+controller.addFields(fieldList);
 
 sObject obj = controller.getRecord();
 
@@ -92,7 +93,7 @@ See the following visualforce page example which will generate an edit form for 
                     
                     <!--Each section has layoutFields, let's iterate them as well-->
                     <apex:repeat value="{!layoutSection.layoutFields}" var="layoutField">
-                        <apex:inputField value="{!Account[layoutField.ApiName]}" rendered="{!not(layoutField.isPlaceHOlder)}"    />
+                        <apex:inputField value="{!Account[layoutField.ApiName]}" rendered="{!not(layoutField.isPlaceHOlder)}" required="{!layoutField.required}"  />
                         <apex:pageblocksectionitem rendered="{!layoutField.isPlaceHolder}" >
                             <apex:outputPanel ></apex:outputPanel>
                         </apex:pageblocksectionitem>
