@@ -44,11 +44,7 @@ public EditAccountController(ApexPages.StandardController controller) {
             
             
 	/* dynamically get all fields for the Account object and add them to the controller */
-    List<String> fieldList = new List<String>();
-    for(Schema.SObjectField field: Schema.getGlobalDescribe().get('Account').getDescribe().fields.getMap().values()) {
-        fieldList.add(String.ValueOf(field));
-    }
-		
+    List<String> fieldList = new List<String>(Schema.getGlobalDescribe().get('Account').getDescribe().fields.getMap().keyset());		
 
 // Add fields to controller. This is to avoid the SOQL error in visualforce page
 controller.addFields(fieldList);
