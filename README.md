@@ -91,7 +91,6 @@ See the following visualforce page example which will generate an edit form for 
                     <apex:repeat value="{!layoutSection.layoutFields}" var="layoutField">
                         <apex:inputField value="{!Account[layoutField.ApiName]}" rendered="{!not(layoutField.isPlaceHOlder)}" required="{!layoutField.required}"  />
                         <apex:pageblocksectionitem rendered="{!layoutField.isPlaceHolder}" >
-                            <apex:outputPanel ></apex:outputPanel>
                         </apex:pageblocksectionitem>
                     </apex:repeat>
                     
