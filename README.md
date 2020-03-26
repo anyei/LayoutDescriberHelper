@@ -27,6 +27,9 @@ After you install, you must make sure the salesforce instance server where you a
 7. Navigate to Setup -> Session Settings -> Ensure  "Lock sessions to the IP address from which they originated" is turned off. 
 8. If 7, was deselected, you will need to log out and log in again for this change to take effect. 
 
+### Demo
+![demo](https://github.com/anyei/LayoutDescriberHelper/raw/master/ldescriber-demo.gif)
+
 ### Usage
 Just do the following in your visualforce page controller
 ```sh
@@ -99,5 +102,9 @@ See the following visualforce page example which will generate an edit form for 
     </apex:pageblock>
         </apex:form>
 </apex:page>
+
+### Override Standard Buttons (optional)
+
+If you want, you can override the standard action/button in salesforce classic mode by going to your object and then go to the "Buttons, Links, and Actions" section, there you edit the edit or new action to replace the standard with your custom visualforce page.
 
 ```
